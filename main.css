@@ -25,26 +25,32 @@ h2 {
   text-align: center;
 }
 
-.heart-circle {
-  padding: 18px 14px 10px 14px;
-  border: 4px solid #bbb;
-  border-radius: 50%;
-}
-
 .heart {
   position: relative;
+  box-sizing: border-box;
   width: 100px;
   height: 100px;
-  background-image: url("./heart-outline.svg");
-  background-repeat: no-repeat;
+  border: 4px solid #bbb;
+  border-radius: 50%;
+  --padding: 18px 14px 10px 14px;
+}
+
+.heart::before {
+  content: url("./heart-outline.svg");
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: var(--padding);
 }
 
 .heart::after {
   content: url("./heart-fill.svg");
-  display: block;
   position: absolute;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  padding: var(--padding);
   opacity: 0;
 }
 
